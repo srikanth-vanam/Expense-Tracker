@@ -1,36 +1,52 @@
+import { useState } from "react";
 import "./ExpenseForm.css";
 const ExpenseForm = () => {
-  function Logger(e) {
-    // e.preventDefault();
-    console.log(e.target.value);
+  const[editTitle,seteditTitle]=useState('');
+  const[editAmount,seteditAmount]=useState('');
+  const[editDate,seteditDate]=useState('');
+
+  const titleChangeHandler=(e)=>{
+    seteditTitle(e.target.value);
   }
+  const amountChangeHandler=(e)=>{
+    seteditAmount(e.target.value);
+  }
+  const dateChangeHandler=(e)=>{
+      seteditDate(e.target.value);
+  }
+
   return (
-    <div className="form">
-      <div className="form-input">
-        <label for="expense-title">Expense title</label>
-        <input
-          id="expense-title"
-          name="expense-title"
-          onChange={Logger}
-        ></input>
+    <form>
+      <div className="form">
+        <div className="form-input">
+          <label for="expense-title">Expense title</label>
+          <input type="text"
+            id="expense-title"
+            name="expense-title"
+            onChange={titleChangeHandler}
+          ></input>
+        </div>
+        <div className="form-input">
+          <label for="expense-amount">Expense Amount</label>
+          <input type="text"
+            id="expense-amount"
+            name="expense-amount"
+            onChange={amountChangeHandler}
+          ></input>
+        </div>
+        <div className="form-input">
+          <label for="expense-date">Expense Date</label>
+          <input type="date"
+            id="expense-date"
+            name="expense-date"
+            onChange={dateChangeHandler}
+          ></input>
+        </div>
+        <div className="form-input">
+          <button type="submit">Form-Button</button>
+        </div>
       </div>
-      <div className="form-input">
-        <label for="expense-amount">Expense Amount</label>
-        <input
-          id="expense-amount"
-          name="expense-amount"
-          onChange={Logger}
-        ></input>
-      </div>
-      <div className="form-input">
-        <label for="expense-date">Expense Date</label>
-        <input id="expense-date" name="expense-date" onChange={Logger}></input>
-      </div>
-      <div className="form-input">
-        
-      <button>Form-Button</button>
-      </div>
-    </div>
+    </form>
   );
 };
 export default ExpenseForm;
