@@ -1,3 +1,4 @@
+import ExpenseForm from "./components/ExpenseForm/ExpenseForm";
 import ExpenseItem from "./components/Expenses/ExpenseItem";
 function App() {
   const expenses = [
@@ -34,6 +35,7 @@ function App() {
   return (
     <div>
       <h2>Let's gert started!</h2>
+      <ExpenseForm></ExpenseForm>
       {/* before this map function added "ExpenseItem component" repeatedly like --<ExpenseItem></ExpenseItem>*4-- */}
       {expenses.map((expense) => (
         <ExpenseItem
