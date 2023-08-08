@@ -1,7 +1,9 @@
-import ExpenseForm from "./components/ExpenseForm/ExpenseForm";
+import { useState } from "react";
+import NewExpense from "./components/ExpenseForm/NewExpense";
 import ExpenseItem from "./components/Expenses/ExpenseItem";
 function App() {
-  const expenses = [
+  // Passed expenses array to useState
+  const [expenses, setExpenses]=useState([
     {
       id: "e1",
       title: "Toilet Paper",
@@ -30,12 +32,22 @@ function App() {
       date: new Date(2021, 5, 12),
       location: "Banswada",
     },
-  ];
-
+  ])
+  // function to get data from child comp NewExpense
+  const AddExpenseHandler=(expense)=>{
+    console.log("in app.js");
+    console.log(expense);
+    setExpenses((prevState)=>{
+      // return type is array[] not {} braces
+      return[
+        ...prevState,expense
+      ]
+    })
+    console.log(expenses);
+  }
   return (
     <div>
-      <h2>Let's gert started!</h2>
-      <ExpenseForm></ExpenseForm>
+      <NewExpense onAddExpense={AddExpenseHandler}/>
       {/* before this map function added "ExpenseItem component" repeatedly like --<ExpenseItem></ExpenseItem>*4-- */}
       {expenses.map((expense) => (
         <ExpenseItem
