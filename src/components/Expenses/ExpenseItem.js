@@ -3,6 +3,9 @@ import ExpenseDetails from "./ExpenseDetails";
 import "./ExpenseItem.css";
 import ExpenseFilter from "./ExpenseFilter";
 import Card from "../UI/Card";
+import ExpensesChart from "./ExpensesChart";
+import ExpensesList from "./ExpensesList";
+
 const ExpenseItem = (props) => {
   const [filteredYear, setFilteredYear] = useState("2023");
   const changeFilterHandler = (filterYear) => {
@@ -62,9 +65,11 @@ const ExpenseItem = (props) => {
       )} */
       }
       {/* another way of using conditional rendering */}
-      {expenseContent}
-      {/* showing display msg on screen if there is only item */}
-      {newExpenseArray.length === 1?(<p>Only single Expense here. Please add more...</p>):(<p></p>)}
+      {/* {expenseContent} */}
+      {/* showing display msg on screen if there is only item
+      {newExpenseArray.length === 1?(<p>Only single Expense here. Please add more...</p>):(<p></p>)} */}
+      <ExpensesChart expenses={newExpenseArray} />
+      <ExpensesList items={newExpenseArray} />
     </Card>
   );
 };
