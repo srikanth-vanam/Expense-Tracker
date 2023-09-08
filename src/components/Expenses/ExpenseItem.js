@@ -15,19 +15,19 @@ const ExpenseItem = (props) => {
     return exp.date.getFullYear().toString() === filteredYear;
   });
   // using conditional rendering for display msg
-  let expenseContent=<p>No Expense-items to display here</p>;
+  // let expenseContent=<p>No Expense-items to display here</p>;
   // this is Jsx syntax
-  if(newExpenseArray.length > 0){
-    expenseContent=newExpenseArray.map((expense) => (
-      <ExpenseDetails
-        key={expense.id}
-        title={expense.title}
-        amount={expense.amount}
-        date={expense.date}
-        location={expense.location}
-      />
-    ))
-  }
+  // if(newExpenseArray.length > 0){
+  //   expenseContent=newExpenseArray.map((expense) => (
+  //     <ExpenseDetails
+  //       key={expense.id}
+  //       title={expense.title}
+  //       amount={expense.amount}
+  //       date={expense.date}
+  //       location={expense.location}
+  //     />
+  //   ))
+  // }
 
   return (
     <Card className="expenses">
